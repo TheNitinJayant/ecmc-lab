@@ -1,0 +1,23 @@
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    margin: 5rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid black;
+    border-radius: 3px;
+    width: 300px;
+}
+
+.product-image {
+    height: 200px;
+    width: 200px;
+    padding: 0.5rem;
+}
