@@ -21,3 +21,7 @@
     width: 200px;
     padding: 0.5rem;
 }
+
+.hide {
+    display: none;
+}

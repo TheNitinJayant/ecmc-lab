@@ -13,15 +13,25 @@ const displayValidation = document.getElementById("display-validation");
 submitButton.addEventListener("click", handleClick);
 
 function handleClick() {
-    // if (!isEmailValid(email)) {
-    //     displayValidation.textContent = "please enter correctly";
-    // } else {
-    //     displayValidation.textContent = "Singin Up";
-    //     signUp();
-    // }
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    const phone = document.getElementById("phone").value;
 
-    displayValidation.textContent = "Singin Up";
-    signUp();
+    if (
+        !isEmailValid(email) ||
+        !isPasswordValid(password, confirmPassword) ||
+        !isPhoneValid(phone)
+    ) {
+        displayValidation.textContent = "please enter correctly";
+    } else {
+        displayValidation.textContent = "Singin Up";
+        signUp();
+    }
+
+    // displayValidation.textContent = "Singin Up";
+    // signUp();
 }
 
 function signUp() {
@@ -60,4 +70,30 @@ function isEmailValid(email) {
     }
 
     return result;
+}
+
+function isPhoneValid(phone) {
+    if (phone.length != 10) {
+        return false;
+    }
+
+    let result = true;
+
+    for (let i = 0; i < phone.length; i++) {
+        let c = phone[i];
+        if (c >= "0" && c <= "9") {
+            result = true;
+        } else {
+            return false;
+        }
+    }
+
+    return result;
+}
+
+function isPasswordValid(password1, password2) {
+    if (password1 != password2) {
+        return false;
+    }
+    return true;
 }
